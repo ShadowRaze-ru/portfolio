@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+:root {
+  --bg:       #060d08;
+  --line:     rgba(255,255,255,0.07);
+  --line2:    rgba(255,255,255,0.04);
+  --green:    #4e8c62;
+  --green-l:  #6aab7e;
+  --green-d:  #2d5238;
+  --gold:     #a07c2a;
+  --white:    #edf1ee;
+  --mid:      #7a9482;
+  --dim:      #3a5242;
+  --font-display: 'Playfair Display', serif;
+  --font-body:    'DM Sans', sans-serif;
+}
+
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width:3px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--green-d); }
+
+body::after {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:9000;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E");
+  opacity:.028;
+}
+
+.container { max-width:1100px; margin:0 auto; padding:0 52px; }
+@media(max-width:700px)  { .container { padding:0 20px; } }
+@media(max-width:380px)  { .container { padding:0 16px; } }
+
+.r {
+  opacity:0; transform:translateY(20px);
+  transition:opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1);
+}
+.r.in { opacity:1; transform:none; }
+.r.d1{transition-delay:.08s} .r.d2{transition-delay:.18s}
+.r.d3{transition-delay:.3s}  .r.d4{transition-delay:.44s}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: .64rem; font-weight: 500;
+  letter-spacing: .26em; text-transform: uppercase;
+  color: var(--dim);
+}
+
+a { color:inherit; text-decoration:none; }
+
+::selection {
+  background: var(--green-d);
+  color: var(--white);
+}
