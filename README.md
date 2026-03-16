@@ -1,38 +1,68 @@
-# portfolio
+# Портфолио — Артур Юсупов
 
-This template should help get you started developing with Vue 3 in Vite.
+Личное портфолио frontend-разработчика. Собрано на Vue 3 + Vite, задеплоено на Firebase Hosting.
 
-## Recommended IDE Setup
+## Стек
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Vue 3** — Composition API
+- **Vite** — сборка и dev-сервер
+- **Vue Router** — навигация
+- **Firebase Hosting** — деплой
+- **Google Fonts** — Playfair Display + DM Sans
 
-## Recommended Browser Setup
+## Структура
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```
+src/
+├── assets/
+│   ├── img/
+│   └── styles/
+│       └── main.css
+├── components/
+│   ├── AppNavbar.vue
+│   ├── HeroSection.vue
+│   ├── AboutSection.vue
+│   ├── SkillsSection.vue
+│   ├── ProjectsSection.vue
+│   └── ContactSection.vue
+├── router/
+│   └── index.js
+├── App.vue
+└── main.js
 ```
 
-### Compile and Hot-Reload for Development
+## Запуск
 
-```sh
+```bash
+npm install
 npm run dev
 ```
 
-### Compile and Minify for Production
+## Сборка
 
-```sh
+```bash
 npm run build
 ```
+
+## Деплой
+
+Проект задеплоен на Firebase Hosting.
+
+```bash
+firebase deploy
+```
+
+## Проекты в портфолио
+
+| Проект | Стек | Ссылка |
+|--------|------|--------|
+| SmartFood | HTML, CSS, JavaScript, Firebase | [Live](https://smartfood-46550.web.app/) |
+| Freelance Platform | Vue 3, Vuex, Vue Router, Firebase | [Live](https://freelance-ae474.web.app/) |
+| АНИТИМ Барнаул | Vue 3, Vuex, Vue Router, HH.ru API, Cloudinary, Firebase | [Live](https://anitim-9c1d1.web.app/) |
+
+АНИТИМ Барнаул — победитель регионального конкурса **«Икар Код»** в Алтайском крае.
+
+## Контакт
+
+- GitHub: [ShadowRaze-ru](https://github.com/ShadowRaze-ru)
+- Telegram: [@xletx](https://t.me/xletx)
