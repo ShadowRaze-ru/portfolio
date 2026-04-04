@@ -16,7 +16,8 @@
 
         <div class="right r d2">
           <a v-for="l in links" :key="l.label"
-             :href="l.href" target="_blank" rel="noopener" class="clink">
+              :href="hrefIs(l)"
+              target="_blank" rel="noopener" class="clink">
             <span class="cl-label eyebrow">{{ l.label }}</span>
             <span class="cl-val">{{ l.val }}</span>
             <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
@@ -43,7 +44,18 @@ import { onMounted } from 'vue'
 const links = [
   { label:'GitHub',   val:'ShadowRaze-ru', href:'https://github.com/ShadowRaze-ru' },
   { label:'Telegram', val:'@xletx',        href:'https://t.me/xletx' },
+  { label:'Mail', val:'usupovarthu7@gmail.com' },
+  { label:'Phone', val:'+79530375593' },
 ]
+function hrefIs(l) {
+  if(l.label === 'Mail') {
+    return `mailto:${l.val}`
+  } else if (l.label === 'Phone') {
+    return `tel:${l.val}`
+  } else {
+    return l.href
+  }
+}
 onMounted(() => {
   const o = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.1})
   document.querySelectorAll('#contact .r').forEach(el=>o.observe(el))
@@ -59,6 +71,7 @@ onMounted(() => {
   gap: 80px;
   align-items: start;
   padding-bottom: 72px;
+  align-items: center;
 }
 
 .heading {
@@ -77,7 +90,7 @@ onMounted(() => {
 }
 @keyframes bl { 0%,100%{opacity:1} 50%{opacity:.2} }
 
-.right { display:flex; flex-direction:column; }
+.right { display:flex; flex-direction:column;  }
 .clink {
   display:flex; align-items:center; gap:18px;
   padding:24px 0; border-bottom:1px solid var(--line);
