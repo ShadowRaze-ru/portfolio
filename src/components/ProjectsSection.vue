@@ -52,18 +52,18 @@ const projects = [
     award: 'Икар Код — Алтайский край',
   },
   {
-    title: 'СТЕНЫПРО',
-    desc: 'Лендинг для компании по монтажу межкомнатных перегородок в Москве. Шумоизоляция, замер бесплатно, цены от 930 ₽/м².',
-    tags: ['Vue 3', 'Vite', 'EmailJS', 'Firebase', 'Яндекс Метрика', 'SEO трафик/оптимизация'],
+    title: 'СТЕНЫПРО - возведение перегородок',
+    desc: "Лендинг для компании по монтажу межкомнатных перегородок из ПГП и газобетона в Москве и МО. Квиз-форма, калькулятор экономии, валидация, отправка заявок через EmailJS. Пререндеринг Puppeteer, хостинг на Firebase.",
+    tags: ["Vue 3", "Vite", "EmailJS", "Firebase Hosting", "Puppeteer", "SPA", "Яндекс.Метрика"],
     demo: 'https://возведениеперегородок.рф/',
     github: 'https://github.com/ShadowRaze-ru/stenapro',
   },
   {
-    title: 'Freelance Platform',
-    desc: 'SPA-платформа для фриланса: авторизация, профили, посты. Vue 3 Composition API + Vuex + Firebase.',
-    tags: ['Vue 3', 'Composition API', 'Vuex', 'Vue Router', 'Firebase'],
-    demo: 'https://freelance-ae474.web.app/',
-    github: 'https://github.com/ShadowRaze-ru/freelance',
+    title: 'СтеныПро — покраска и поклейка обоев',
+    desc: 'Одностраничный лендинг (SPA) услуг по покраске и поклейке обоев в Москве. Квиз-форма, быстрая заявка, валидация телефона и email, отправка через EmailJS. Статический пререндеринг Puppeteer, хостинг на Firebase.',
+    tags: ["Vue 3", "Vite", "EmailJS", "Firebase Hosting", "Puppeteer", "SPA", "Яндекс.Метрика"],
+    demo: 'https://покраскаобоев.рф/',
+    github: 'https://github.com/ShadowRaze-ru/stenapro-wallpapers',
   },
 ]
 onMounted(() => {
