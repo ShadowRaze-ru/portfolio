@@ -3,10 +3,11 @@
     <div class="bg-glow"></div>
 
     <div class="container hero-wrap">
+
       <div class="hero-top r">
         <span class="eyebrow">Frontend Developer · 14 лет</span>
         <div class="ht-right">
-          <span class="eyebrow year">Россия · доступен к проектам</span>
+          <span class="eyebrow year">Россия · Vue 3</span>
           <span class="status-dot"></span>
         </div>
       </div>
@@ -21,23 +22,19 @@
 
       <div class="hero-bottom r d3">
         <div class="hb-left">
-          <p class="hero-sub">
-            Я делаю не только интерфейсы, а рабочие продукты: от идеи и UX до API, деплоя и сопровождения.
-            Готов брать задачи, где важны скорость, аккуратность и результат.
-          </p>
+          <p class="hero-sub">Строю интерфейсы на Vue 3. От идеи до деплоя.</p>
           <div class="badges">
             <span class="badge">Vue 3</span>
-            <span class="badge">Node.js</span>
             <span class="badge">Firebase</span>
-            <span class="badge">Docker</span>
-            <span class="badge">REST API</span>
+            <span class="badge">Vite</span>
           </div>
         </div>
         <div class="hero-cta">
-          <a href="#projects" class="cta-a" @click.prevent="go('#projects')">Смотреть проекты</a>
-          <a href="#contact" class="cta-b" @click.prevent="go('#contact')">Обсудить задачу</a>
+          <a href="#projects" class="cta-a" @click.prevent="go('#projects')">Проекты</a>
+          <a href="#contact"  class="cta-b" @click.prevent="go('#contact')">Написать</a>
         </div>
       </div>
+
     </div>
 
     <div class="sc r d4"><div class="sc-fill"></div></div>
@@ -47,7 +44,7 @@
 <script setup>
 import { onMounted } from 'vue'
 function go(h) { document.querySelector(h)?.scrollIntoView({ behavior:'smooth' }) }
-onMounted(() => setTimeout(() => document.querySelectorAll('#hero .r').forEach(e => e.classList.add('in')), 50))
+onMounted(() => setTimeout(() => document.querySelectorAll('#hero .r').forEach(e=>e.classList.add('in')), 50))
 </script>
 
 <style scoped>
@@ -123,7 +120,7 @@ onMounted(() => setTimeout(() => document.querySelectorAll('#hero .r').forEach(e
 .hb-left { display: flex; flex-direction: column; gap: 14px; }
 .hero-sub {
   font-size: .94rem; color: var(--mid); font-weight: 300;
-  line-height: 1.72; max-width: 430px;
+  line-height: 1.72; max-width: 360px;
   font-family: var(--font-body);
 }
 .badges { display: flex; gap: 8px; flex-wrap: wrap; }

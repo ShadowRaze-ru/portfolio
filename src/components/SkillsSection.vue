@@ -3,13 +3,13 @@
     <div class="container">
       <div class="head">
         <span class="eyebrow r">// Стек</span>
-        <h2 class="heading r d1">Технологии и инструменты</h2>
+        <h2 class="heading r d1">Технологии</h2>
         <div class="rule r d1"></div>
       </div>
       <div class="bands">
-        <div class="band r" :class="`d${i % 4 + 1}`" v-for="(g, i) in groups" :key="g.t">
+        <div class="band r" :class="`d${i%4+1}`" v-for="(g,i) in groups" :key="g.t">
           <div class="band-l">
-            <span class="band-n eyebrow">{{ String(i + 1).padStart(2, '0') }}</span>
+            <span class="band-n eyebrow">{{ String(i+1).padStart(2,'0') }}</span>
             <h3 class="band-t">{{ g.t }}</h3>
           </div>
           <div class="band-pills">
@@ -24,14 +24,15 @@
 <script setup>
 import { onMounted } from 'vue'
 const groups = [
-  { t: 'Frontend', s: ['HTML5', 'CSS3', 'JavaScript (ES6+)', 'Bootstrap', 'Vue 3', 'Composition API', 'Vuex', 'Vue Router', 'Vite'] },
-  { t: 'Backend', s: ['Node.js', 'Express.js', 'REST API', 'Firebase', 'JWT', 'Auth'] },
-  { t: 'Data & Integrations', s: ['PostgreSQL', 'Excel / CSV', 'OpenAPI', 'JSON', 'Axios', 'Fetch'] },
-  { t: 'Tools', s: ['Git', 'GitHub', 'GitHub Pages', 'Docker', 'Docker Compose', 'SEO', 'Env'] },
+  {t:'Frontend',     s:['HTML5','CSS3','JavaScript ES6+','Bootstrap','Адаптив']},
+  {t:'Vue 3',        s:['Options API','Composition API','Vuex','Vue Router','Axios']},
+  {t:'Бэкенд & API', s:['REST API','Node.js','Express.js','XHR / Fetch / Axios']},
+  {t:'Firebase',     s:['Firestore CRUD','Authentication','Hosting','Deploy']},
+  {t:'Инструменты',  s:['Git','GitHub','GitHub Pages','Vite','VS Code']},
 ]
 onMounted(() => {
-  const o = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), { threshold: .08 })
-  document.querySelectorAll('#skills .r').forEach(el => o.observe(el))
+  const o = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.08})
+  document.querySelectorAll('#skills .r').forEach(el=>o.observe(el))
 })
 </script>
 

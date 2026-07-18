@@ -2,17 +2,15 @@
   <section id="contact" class="contact">
     <div class="container">
       <div class="grid">
+
         <div class="left">
           <span class="eyebrow r">// Контакт</span>
-          <h2 class="heading r d1">Готов к новым задачам</h2>
+          <h2 class="heading r d1">Напишите<br/>мне</h2>
           <div class="rule r d2"></div>
-          <p class="desc r d2">
-            Если нужен человек, который может взять проект от идеи до рабочего результата — пишите.
-            Мне интересны реальные задачи, продуктовая логика и развитие вместе с командой.
-          </p>
+          <p class="desc r d2">Открыт к проектам,<br/>сотрудничеству и интересным разговорам.</p>
           <div class="status r d3">
             <span class="dot"></span>
-            <span class="eyebrow">Открыт к работе и новым проектам</span>
+            <span class="eyebrow">Открыт к работе</span>
           </div>
         </div>
 
@@ -28,6 +26,7 @@
             </svg>
           </a>
         </div>
+
       </div>
     </div>
 
@@ -43,13 +42,13 @@
 <script setup>
 import { onMounted } from 'vue'
 const links = [
-  { label: 'GitHub', val: 'ShadowRaze-ru', href: 'https://github.com/ShadowRaze-ru' },
-  { label: 'Telegram', val: '@xletx', href: 'https://t.me/xletx' },
-  { label: 'Mail', val: 'usupovarthu7@gmail.com' },
-  { label: 'Phone', val: '+79530375593' },
+  { label:'GitHub',   val:'ShadowRaze-ru', href:'https://github.com/ShadowRaze-ru' },
+  { label:'Telegram', val:'@xletx',        href:'https://t.me/xletx' },
+  { label:'Mail', val:'usupovarthu7@gmail.com' },
+  { label:'Phone', val:'+79530375593' },
 ]
 function hrefIs(l) {
-  if (l.label === 'Mail') {
+  if(l.label === 'Mail') {
     return `mailto:${l.val}`
   } else if (l.label === 'Phone') {
     return `tel:${l.val}`
@@ -58,8 +57,8 @@ function hrefIs(l) {
   }
 }
 onMounted(() => {
-  const o = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), { threshold: .1 })
-  document.querySelectorAll('#contact .r').forEach(el => o.observe(el))
+  const o = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.1})
+  document.querySelectorAll('#contact .r').forEach(el=>o.observe(el))
 })
 </script>
 

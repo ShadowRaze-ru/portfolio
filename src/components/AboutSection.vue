@@ -6,10 +6,10 @@
       <div class="grid">
         <div class="col-img r d1">
           <div class="frame">
-            <img src="@/assets/img/kodama.jpg" class="photo" alt="Артур Юсупов" />
+            <img src="@/assets/img/kodama.jpg" class="photo" alt="Кодама" />
             <div class="frame-cap">
-              <span class="cap-title">Артур Юсупов</span>
-              <span class="eyebrow cap-sub">Frontend · Product mindset</span>
+              <span class="cap-title">Кодама</span>
+              <span class="eyebrow cap-sub">Принцесса Мононоке, 1997</span>
             </div>
           </div>
           <div class="stats">
@@ -21,22 +21,19 @@
         </div>
 
         <div class="col-txt">
-          <h2 class="heading r d1">Привет, я <em>Артур</em></h2>
+          <h2 class="heading r d1">Привет,<br/>я <em>Артур</em></h2>
           <div class="rule r d2"></div>
           <p class="body r d2">
-            Мне 14 лет, и я уже работаю не только над интерфейсами, а над продуктами: делаю SPA, настраиваю API, интеграции, сборку и деплой.
-            Мне важно, чтобы проект был не просто красивым, а полезным, быстрым и понятным для пользователя.
+            Мне 14 лет. Чуть больше года назад начал с HTML —
+            и уже дошёл до полноценных SPA на Vue&nbsp;3
+            с Firebase-бэкендом. Делаю живые рабочие проекты, не учебные.
           </p>
           <p class="body r d3">
-            Я участвовал в разработке командного сервиса для обработки Яндекс Форм, где мы сделали инструмент для редактирования, поиска, экспорта и работы с данными по реальному ТЗ.
-            Также реализовал корпоративный сайт для <strong>АО АНИТИМ</strong> и стал призёром конкурса <strong>«Икар Код»</strong>.
+            Третий проект — корпоративный сайт для
+            <strong>АНИТИМ Барнаул</strong> по реальному ТЗ.
+            С ним выиграл региональный конкурс
+            <strong>«Икар Код»</strong> в Алтайском крае.
           </p>
-          <div class="highlights r d4">
-            <div class="highlight" v-for="item in highlights" :key="item.title">
-              <span class="highlight-title">{{ item.title }}</span>
-              <span class="highlight-text">{{ item.text }}</span>
-            </div>
-          </div>
           <div class="tl r d4">
             <div class="tl-row" v-for="t in tl" :key="t.y">
               <span class="tl-y eyebrow">{{ t.y }}</span>
@@ -52,23 +49,17 @@
 <script setup>
 import { onMounted } from 'vue'
 const stats = [
-  { n: '3+', l: 'Полезных проекта' },
-  { n: '1', l: 'Победа' },
-  { n: '14', l: 'Лет' },
-]
-const highlights = [
-  { title: 'Подхожу к задачам как к продукту', text: 'Сначала понимаю проблему, потом выбираю решение.' },
-  { title: 'Работаю в команде', text: 'Понимаю фронтенд, API и процесс разработки целиком.' },
+  {n:'3',l:'Проекта'},{n:'1',l:'Победа'},{n:'14',l:'Лет'},
 ]
 const tl = [
-  { y: 'Нач. 2025', t: 'Первые проекты — HTML / CSS / JavaScript' },
-  { y: 'Сер. 2025', t: 'Vue 3, Firebase, REST API, UI и логика' },
-  { y: 'Кон. 2025', t: 'АНИТИМ + Икар Код' },
-  { y: '2026', t: 'Командная разработка сложного сервиса для форм' },
+  {y:'Нач. 2025',t:'Первые шаги — HTML / CSS'},
+  {y:'Сер. 2025',t:'Vue 3, Firebase, REST API'},
+  {y:'Кон. 2025',t:'АНИТИМ Барнаул + Икар Код'},
+  {y:'2026',t:'Продолжаю расти'},
 ]
 onMounted(() => {
-  const o = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), { threshold: .1 })
-  document.querySelectorAll('#about .r').forEach(el => o.observe(el))
+  const o = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.1})
+  document.querySelectorAll('#about .r').forEach(el=>o.observe(el))
 })
 </script>
 
@@ -116,16 +107,7 @@ onMounted(() => {
 .body { font-size:.94rem; line-height:1.88; color:var(--mid); font-weight:300; margin-bottom:18px; }
 .body strong { color:var(--white); font-weight:500; }
 
-.highlights { display:grid; gap:12px; margin:8px 0 24px; }
-.highlight {
-  display:flex; flex-direction:column; gap:4px;
-  border:1px solid var(--line); padding:14px 16px;
-  background:rgba(255,255,255,.012);
-}
-.highlight-title { font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--green-l); }
-.highlight-text { font-size:.9rem; color:var(--mid); line-height:1.7; }
-
-.tl { margin-top:18px; border-top:1px solid var(--line); }
+.tl { margin-top:36px; border-top:1px solid var(--line); }
 .tl-row {
   display:flex; gap:28px; padding:13px 0;
   border-bottom:1px solid var(--line2); align-items:baseline;
