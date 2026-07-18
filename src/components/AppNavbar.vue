@@ -31,14 +31,14 @@ onUnmounted(()=>removeEventListener('scroll',fn))
 
 <style scoped>
 .nav{position:fixed;inset:0 0 auto;z-index:500;padding:20px 0;transition:background .4s,border-color .4s,padding .4s}
-.nav.solid{background:rgba(6,13,8,.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);padding:13px 0}
-.nav-in{display:flex;align-items:center;justify-content:space-between}
+.nav.solid{background:rgba(6,13,8,.92);backdrop-filter:blur(16px);padding:12px 0}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border:1px solid rgba(255,255,255,.08);border-radius:999px;background:rgba(6,13,8,.6);backdrop-filter:blur(18px);box-shadow:0 12px 34px rgba(0,0,0,.18)}
 .brand{display:flex;align-items:center;gap:10px}
 .bimg{width:28px;height:28px;border-radius:50%;object-fit:cover;filter:grayscale(1) brightness(.55);border:1px solid var(--dim)}
 .bname{font-size:.8rem;letter-spacing:.06em;color:var(--mid);transition:color .3s}
 .brand:hover .bname{color:var(--white)}
 .links{display:flex;gap:32px}
-.links a{font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);transition:color .3s;position:relative}
+.links a{font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);transition:color .3s;position:relative}
 .links a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--green-l);transition:width .3s}
 .links a:hover{color:var(--white)}.links a:hover::after{width:100%}
 
@@ -50,7 +50,9 @@ onUnmounted(()=>removeEventListener('scroll',fn))
 .mob{
   display:none;flex-direction:column;gap:0;
   background:rgba(6,13,8,.97);
-  border-top:1px solid var(--line);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  margin:10px 20px 0;
   max-height:0;overflow:hidden;
   transition:max-height .4s ease;
 }

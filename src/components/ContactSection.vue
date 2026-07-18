@@ -2,15 +2,17 @@
   <section id="contact" class="contact">
     <div class="container">
       <div class="grid">
-
         <div class="left">
           <span class="eyebrow r">// Контакт</span>
-          <h2 class="heading r d1">Напишите<br/>мне</h2>
+          <h2 class="heading r d1">Готов к новым задачам</h2>
           <div class="rule r d2"></div>
-          <p class="desc r d2">Открыт к проектам,<br/>сотрудничеству и интересным разговорам.</p>
+          <p class="desc r d2">
+            Если нужен человек, который может взять проект от идеи до рабочего результата — пишите.
+            Мне интересны реальные задачи, продуктовая логика и развитие вместе с командой.
+          </p>
           <div class="status r d3">
             <span class="dot"></span>
-            <span class="eyebrow">Открыт к работе</span>
+            <span class="eyebrow">Открыт к работе и новым проектам</span>
           </div>
         </div>
 
@@ -26,7 +28,6 @@
             </svg>
           </a>
         </div>
-
       </div>
     </div>
 
@@ -42,13 +43,13 @@
 <script setup>
 import { onMounted } from 'vue'
 const links = [
-  { label:'GitHub',   val:'ShadowRaze-ru', href:'https://github.com/ShadowRaze-ru' },
-  { label:'Telegram', val:'@xletx',        href:'https://t.me/xletx' },
-  { label:'Mail', val:'usupovarthu7@gmail.com' },
-  { label:'Phone', val:'+79530375593' },
+  { label: 'GitHub', val: 'ShadowRaze-ru', href: 'https://github.com/ShadowRaze-ru' },
+  { label: 'Telegram', val: '@xletx', href: 'https://t.me/xletx' },
+  { label: 'Mail', val: 'usupovarthu7@gmail.com' },
+  { label: 'Phone', val: '+79530375593' },
 ]
 function hrefIs(l) {
-  if(l.label === 'Mail') {
+  if (l.label === 'Mail') {
     return `mailto:${l.val}`
   } else if (l.label === 'Phone') {
     return `tel:${l.val}`
@@ -57,8 +58,8 @@ function hrefIs(l) {
   }
 }
 onMounted(() => {
-  const o = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.1})
-  document.querySelectorAll('#contact .r').forEach(el=>o.observe(el))
+  const o = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), { threshold: .1 })
+  document.querySelectorAll('#contact .r').forEach(el => o.observe(el))
 })
 </script>
 
@@ -69,9 +70,12 @@ onMounted(() => {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: start;
-  padding-bottom: 72px;
   align-items: center;
+  padding: 34px 32px 36px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
+  box-shadow: 0 24px 60px rgba(0,0,0,.16);
 }
 
 .heading {
@@ -80,7 +84,7 @@ onMounted(() => {
   line-height:.92; color:var(--white); margin:16px 0 0;
 }
 .rule { width:32px; height:1px; background:var(--green-d); margin:24px 0 22px; }
-.desc { font-size:.94rem; color:var(--mid); font-weight:300; line-height:1.78; margin-bottom:26px; }
+.desc { font-size:.95rem; color:var(--mid); font-weight:300; line-height:1.78; margin-bottom:26px; }
 
 .status { display:flex; align-items:center; gap:10px; }
 .dot {
@@ -90,21 +94,29 @@ onMounted(() => {
 }
 @keyframes bl { 0%,100%{opacity:1} 50%{opacity:.2} }
 
-.right { display:flex; flex-direction:column;  }
+.right { display:flex; flex-direction:column; gap:12px; justify-content:center; }
 .clink {
-  display:flex; align-items:center; gap:18px;
-  padding:24px 0; border-bottom:1px solid var(--line);
-  transition: background .25s, padding-left .3s;
+  display:grid;
+  grid-template-columns: 84px 1fr auto;
+  align-items:center;
+  gap:18px;
+  min-height: 66px;
+  padding:18px 20px; border:1px solid var(--line); border-radius:16px;
+  background: rgba(255,255,255,.03);
+  transition: transform .25s, border-color .25s, background .25s;
 }
-.clink:first-child { border-top:1px solid var(--line); }
-.clink:hover { padding-left:8px; }
+.clink:hover {
+  transform: translateY(-2px);
+  border-color: rgba(78,140,98,.3);
+  background: rgba(78,140,98,.08);
+}
 .cl-label { min-width:76px; flex-shrink:0; }
 .cl-val { flex:1; font-size:.94rem; color:var(--mid); font-weight:300; transition:color .28s; }
 .clink svg { color:var(--dim); transition:color .28s, transform .28s; margin-left:auto; flex-shrink:0; }
 .clink:hover .cl-val { color:var(--white); }
 .clink:hover svg { color:var(--green-l); transform:translate(3px,-3px); }
 
-.footer { border-top:1px solid var(--line); }
+.footer { border-top:none; margin-top:26px; padding-top:14px; }
 .foot-row {
   display:flex; justify-content:space-between; align-items:center;
   padding:22px 20px; flex-wrap:wrap; gap:8px;
@@ -114,16 +126,13 @@ onMounted(() => {
 
 @media(max-width:700px) {
   .contact { padding:64px 0 0; }
-  .grid { grid-template-columns:1fr; gap:36px; padding-bottom:52px; }
+  .grid { grid-template-columns:1fr; gap:36px; padding:24px 20px 28px; }
   .heading { font-size: clamp(2.8rem, 11vw, 4rem); }
   .desc { font-size:1rem; color:var(--mid); }
-  .right { border-left: none; }
-  .clink { padding:20px 0; gap:14px; }
-  .clink:first-child { border-top: 1px solid var(--line); }
-  .clink:hover { padding-left:0; }
+  .clink { padding:16px 16px; gap:14px; }
   .cl-label { min-width:80px; font-size:.6rem; }
   .cl-val { font-size:.95rem; }
-  .foot-row { flex-direction:column;  gap:4px; }
+  .foot-row { flex-direction:column; gap:4px; }
   .f-stack { font-size: .56rem; letter-spacing: .12em; }
 }
 </style>

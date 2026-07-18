@@ -3,11 +3,10 @@
     <div class="bg-glow"></div>
 
     <div class="container hero-wrap">
-
       <div class="hero-top r">
         <span class="eyebrow">Frontend Developer · 14 лет</span>
         <div class="ht-right">
-          <span class="eyebrow year">Россия · Vue 3</span>
+          <span class="eyebrow year">Россия · доступен к проектам</span>
           <span class="status-dot"></span>
         </div>
       </div>
@@ -22,19 +21,23 @@
 
       <div class="hero-bottom r d3">
         <div class="hb-left">
-          <p class="hero-sub">Строю интерфейсы на Vue 3. От идеи до деплоя.</p>
+          <p class="hero-sub">
+            Я делаю не только интерфейсы, а рабочие продукты: от идеи и UX до API, деплоя и сопровождения.
+            Готов брать задачи, где важны скорость, аккуратность и результат.
+          </p>
           <div class="badges">
             <span class="badge">Vue 3</span>
+            <span class="badge">Node.js</span>
             <span class="badge">Firebase</span>
-            <span class="badge">Vite</span>
+            <span class="badge">Docker</span>
+            <span class="badge">REST API</span>
           </div>
         </div>
         <div class="hero-cta">
-          <a href="#projects" class="cta-a" @click.prevent="go('#projects')">Проекты</a>
-          <a href="#contact"  class="cta-b" @click.prevent="go('#contact')">Написать</a>
+          <a href="#projects" class="cta-a" @click.prevent="go('#projects')">Смотреть проекты</a>
+          <a href="#contact" class="cta-b" @click.prevent="go('#contact')">Обсудить задачу</a>
         </div>
       </div>
-
     </div>
 
     <div class="sc r d4"><div class="sc-fill"></div></div>
@@ -44,7 +47,7 @@
 <script setup>
 import { onMounted } from 'vue'
 function go(h) { document.querySelector(h)?.scrollIntoView({ behavior:'smooth' }) }
-onMounted(() => setTimeout(() => document.querySelectorAll('#hero .r').forEach(e=>e.classList.add('in')), 50))
+onMounted(() => setTimeout(() => document.querySelectorAll('#hero .r').forEach(e => e.classList.add('in')), 50))
 </script>
 
 <style scoped>
@@ -54,19 +57,25 @@ onMounted(() => setTimeout(() => document.querySelectorAll('#hero .r').forEach(e
   display: flex;
   align-items: stretch;
   overflow: hidden;
+  padding: 112px 0 36px;
 }
 .bg-glow {
   position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(ellipse 70% 55% at 15% 55%, rgba(30,72,46,.2) 0%, transparent 65%),
-    radial-gradient(ellipse 45% 35% at 80% 30%, rgba(18,52,32,.1) 0%, transparent 65%);
+    radial-gradient(ellipse 70% 55% at 15% 55%, rgba(30,72,46,.22) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 35% at 80% 30%, rgba(18,52,32,.16) 0%, transparent 65%);
 }
 .hero-wrap {
   display: flex; flex-direction: column;
   justify-content: space-between;
-  padding-top: 130px; padding-bottom: 56px;
+  padding: 34px clamp(24px, 3vw, 36px);
   width: 100%; position: relative; z-index: 1;
-  min-height: 100svh;
+  min-height: calc(100svh - 148px);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  backdrop-filter: blur(18px);
+  box-shadow: 0 30px 90px rgba(0,0,0,.25);
 }
 
 .hero-top {
@@ -75,7 +84,7 @@ onMounted(() => setTimeout(() => document.querySelectorAll('#hero .r').forEach(e
   gap: 16px;
 }
 .ht-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-.year { color: var(--dim); white-space: nowrap; }
+.year { color: var(--mid); white-space: nowrap; }
 .hero-top > .eyebrow { white-space: nowrap; }
 .status-dot {
   width: 6px; height: 6px; border-radius: 50%;
@@ -86,7 +95,7 @@ onMounted(() => setTimeout(() => document.querySelectorAll('#hero .r').forEach(e
 
 .name-block {
   flex: 1; display: flex; flex-direction: column;
-  justify-content: center; padding: 24px 0 16px;
+  justify-content: center; padding: 32px 0 20px;
 }
 .n-last {
   font-family: var(--font-display); font-weight: 900;
@@ -107,7 +116,7 @@ onMounted(() => setTimeout(() => document.querySelectorAll('#hero .r').forEach(e
 .n-year {
   font-family: var(--font-body); font-weight: 300;
   font-size: clamp(.9rem, 1.8vw, 1.4rem);
-  color: var(--dim); letter-spacing: .1em;
+  color: var(--mid); letter-spacing: .1em;
   padding-bottom: .22em; flex-shrink: 0;
 }
 
@@ -119,35 +128,39 @@ onMounted(() => setTimeout(() => document.querySelectorAll('#hero .r').forEach(e
 }
 .hb-left { display: flex; flex-direction: column; gap: 14px; }
 .hero-sub {
-  font-size: .94rem; color: var(--mid); font-weight: 300;
-  line-height: 1.72; max-width: 360px;
+  font-size: .96rem; color: var(--mid); font-weight: 300;
+  line-height: 1.72; max-width: 430px;
   font-family: var(--font-body);
 }
 .badges { display: flex; gap: 8px; flex-wrap: wrap; }
 .badge {
-  padding: 4px 12px; border: 1px solid var(--green-d);
-  font-size: .62rem; font-weight: 500;
-  letter-spacing: .16em; text-transform: uppercase; color: var(--green);
+  padding: 6px 12px; border: 1px solid rgba(78,140,98,.25);
+  border-radius: 999px;
+  font-size: .62rem; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--green-l);
+  background: rgba(78,140,98,.08);
   font-family: var(--font-body);
 }
 
 .hero-cta { display: flex; gap: 10px; flex-shrink: 0; }
 .cta-a {
-  padding: 13px 32px; background: var(--green); color: #fff;
-  font-size: .7rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
-  transition: background .28s, transform .18s; font-family: var(--font-body);
+  padding: 13px 30px; background: linear-gradient(135deg, var(--green), #5fa072); color: #fff;
+  border-radius: 999px; font-size: .7rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+  transition: transform .2s, box-shadow .2s; font-family: var(--font-body);
+  box-shadow: 0 10px 24px rgba(78,140,98,.22);
 }
-.cta-a:hover { background: #5fa072; transform: translateY(-1px); }
+.cta-a:hover { transform: translateY(-2px); box-shadow: 0 16px 30px rgba(78,140,98,.28); }
 .cta-b {
-  padding: 13px 32px; border: 1px solid var(--dim); color: var(--mid);
-  font-size: .7rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
-  transition: border-color .28s, color .28s, transform .18s; font-family: var(--font-body);
+  padding: 13px 30px; border: 1px solid rgba(255,255,255,.12); color: var(--white);
+  border-radius: 999px; background: rgba(255,255,255,.03);
+  font-size: .7rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+  transition: border-color .28s, background .28s, transform .18s; font-family: var(--font-body);
 }
-.cta-b:hover { border-color: var(--green-d); color: var(--white); transform: translateY(-1px); }
+.cta-b:hover { border-color: rgba(78,140,98,.4); background: rgba(78,140,98,.12); transform: translateY(-2px); }
 
 .sc {
-  position: absolute; left: 52px; bottom: 56px;
-  width: 1px; height: 52px; background: var(--dim); overflow: hidden;
+  position: absolute; left: 36px; bottom: 36px;
+  width: 1px; height: 52px; background: rgba(255,255,255,.16); overflow: hidden;
 }
 .sc-fill {
   width: 100%; height: 45%; background: var(--green-l);
@@ -156,14 +169,15 @@ onMounted(() => setTimeout(() => document.querySelectorAll('#hero .r').forEach(e
 @keyframes scA { 0%{transform:translateY(-100%)} 100%{transform:translateY(230%)} }
 
 @media(max-width:680px) {
+  .hero { padding: 92px 0 24px; }
   .sc, .n-year, .ht-right { display: none; }
-  .hero-wrap { padding-top: 76px; padding-bottom: 32px; }
+  .hero-wrap { min-height: calc(100svh - 116px); padding-top: 76px; padding-bottom: 32px; border-radius: 24px; }
   .name-block { padding: 18px 0 14px; }
   .n-last  { font-size: clamp(72px, 22vw, 112px); line-height: .86; }
   .n-first { font-size: clamp(64px, 20vw, 100px); line-height: .90; }
   .n-second-row { justify-content: flex-start; }
   .hero-bottom { flex-direction: column; align-items: flex-start; gap: 18px; padding-top: 20px; }
-  .hero-sub { max-width: 100%; font-size: .9rem; }
+  .hero-sub { max-width: 100%; font-size: .95rem; }
   .hero-cta { width: 100%; flex-direction: column; gap: 8px; }
   .cta-a, .cta-b { width: 100%; text-align: center; padding: 15px; font-size: .72rem; }
 }

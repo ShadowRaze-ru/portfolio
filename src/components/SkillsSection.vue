@@ -3,13 +3,13 @@
     <div class="container">
       <div class="head">
         <span class="eyebrow r">// Стек</span>
-        <h2 class="heading r d1">Технологии</h2>
+        <h2 class="heading r d1">Технологии и инструменты</h2>
         <div class="rule r d1"></div>
       </div>
       <div class="bands">
-        <div class="band r" :class="`d${i%4+1}`" v-for="(g,i) in groups" :key="g.t">
+        <div class="band r" :class="`d${i % 4 + 1}`" v-for="(g, i) in groups" :key="g.t">
           <div class="band-l">
-            <span class="band-n eyebrow">{{ String(i+1).padStart(2,'0') }}</span>
+            <span class="band-n eyebrow">{{ String(i + 1).padStart(2, '0') }}</span>
             <h3 class="band-t">{{ g.t }}</h3>
           </div>
           <div class="band-pills">
@@ -24,15 +24,14 @@
 <script setup>
 import { onMounted } from 'vue'
 const groups = [
-  {t:'Frontend',     s:['HTML5','CSS3','JavaScript ES6+','Bootstrap','Адаптив']},
-  {t:'Vue 3',        s:['Options API','Composition API','Vuex','Vue Router','Axios']},
-  {t:'Бэкенд & API', s:['REST API','Node.js','Express.js','XHR / Fetch / Axios']},
-  {t:'Firebase',     s:['Firestore CRUD','Authentication','Hosting','Deploy']},
-  {t:'Инструменты',  s:['Git','GitHub','GitHub Pages','Vite','VS Code']},
+  { t: 'Frontend', s: ['HTML5', 'CSS3', 'JavaScript (ES6+)', 'Bootstrap', 'Vue 3', 'Composition API', 'Vuex', 'Vue Router', 'Vite'] },
+  { t: 'Backend', s: ['Node.js', 'Express.js', 'REST API', 'Firebase', 'JWT', 'Auth'] },
+  { t: 'Data & Integrations', s: ['PostgreSQL', 'Excel / CSV', 'OpenAPI', 'JSON', 'Axios', 'Fetch'] },
+  { t: 'Tools', s: ['Git', 'GitHub', 'GitHub Pages', 'Docker', 'Docker Compose', 'SEO', 'Env'] },
 ]
 onMounted(() => {
-  const o = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.08})
-  document.querySelectorAll('#skills .r').forEach(el=>o.observe(el))
+  const o = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), { threshold: .08 })
+  document.querySelectorAll('#skills .r').forEach(el => o.observe(el))
 })
 </script>
 
@@ -46,15 +45,20 @@ onMounted(() => {
 }
 .rule { width:32px; height:1px; background:var(--green-d); margin-top:22px; }
 
-.bands { display:flex; flex-direction:column; }
+.bands { display:flex; flex-direction:column; gap:12px; }
 .band {
   display:flex; align-items:center; gap:52px;
-  padding:26px 0;
-  border-bottom:1px solid var(--line);
-  transition:background .25s, padding-left .3s;
+  padding:22px 24px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background: linear-gradient(135deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
+  transition:transform .25s, border-color .25s, background .25s;
 }
-.band:first-child { border-top:1px solid var(--line); }
-.band:hover { background:rgba(255,255,255,.015); padding-left:14px; }
+.band:hover {
+  transform: translateY(-2px);
+  border-color:rgba(78,140,98,.28);
+  background: linear-gradient(135deg, rgba(78,140,98,.08), rgba(255,255,255,.025));
+}
 
 .band-l { display:flex; align-items:baseline; gap:18px; min-width:200px; flex-shrink:0; }
 .band-n { color:var(--dim); }
@@ -65,12 +69,14 @@ onMounted(() => {
 
 .band-pills { display:flex; flex-wrap:wrap; gap:8px; }
 .pill {
-  padding:5px 13px;
-  border:1px solid var(--dim);
+  padding:6px 12px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:999px;
   font-size:.7rem; letter-spacing:.04em; color:var(--mid);
+  background: rgba(255,255,255,.03);
   transition:border-color .25s, color .25s, background .25s;
 }
-.band:hover .pill { border-color:var(--green-d); color:var(--white); background:rgba(46,82,56,.15); }
+.band:hover .pill { border-color:rgba(78,140,98,.24); color:var(--white); background:rgba(46,82,56,.15); }
 
 @media(max-width:860px){
   .band { gap:28px; }
@@ -85,9 +91,8 @@ onMounted(() => {
     flex-direction:column;
     align-items:flex-start;
     gap:12px;
-    padding:20px 0;
+    padding:20px 18px;
   }
-  .band:hover { padding-left:0; }
 
   .band-l { min-width:auto; gap:12px; }
   .band-n { font-size:.6rem; }
