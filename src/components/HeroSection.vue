@@ -4,7 +4,7 @@
 
     <div class="container hero-wrap">
       <div class="hero-top r">
-        <span class="eyebrow">Frontend Developer · 14 лет</span>
+        <span class="eyebrow">Frontend Developer · 15 лет</span>
         <div class="ht-right">
           <span class="eyebrow year">Россия · доступен к проектам</span>
           <span class="status-dot"></span>
